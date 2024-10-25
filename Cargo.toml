@@ -4,12 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-arduino-hal = { git = "https://github.com/Rahix/avr-hal", branch = "main", features = ["arduino-uno"] }
 panic-halt = "0.2"
-
+avr-device = { version = "0.5.4", features = ["atmega328p", "rt"] }
 
 [profile.release]
-panic = "abort"
-
-[profile.dev]
 panic = "abort"

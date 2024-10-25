@@ -1,19 +1,51 @@
-#![no_std] // disable the standard library
-#![no_main] // Not relevant because this usually instructs the compiler to not look for a 'main' function as the entry point, but in our case, we still used the 'main' function
+#![no_std]
+#![no_main]
 
-use panic_halt as _;  // panic handler. In this case , it will just halt(stop) the program
+use core::ptr;
+use avr_device::entry;
+use panic_halt as _;
 
-#[arduino_hal::entry] //  This is the entry point for the Arduino HAL
-fn main() -> ! {   
-    let dp = arduino_hal::Peripherals::take().unwrap();  // Take the peripherals from the Arduino HAL
-    let pins = arduino_hal::pins!(dp); //  Create a pins object from the peripherals
+const DDRB: *mut u8 = 0x24 as *mut u8;
+const PORTB: *mut u8 = 0x25 as *mut u8;
+const PINB5: u8 = 1 << 5;
 
-    let mut led = pins.d13.into_output();  //  Create a pin object for the LED pin and set it to output
+#[entry]
+fn main() -> ! {
+    setup();
 
-    loop { // //   This is an infinite loop that will blink the LED
-        led.set_high(); // Turn on the led by setting the pin D13 to a high voltage         
-        arduino_hal::delay_ms(1000);  // wait for 1ooo ms, which is 1 second
-        led.set_low();              //setting the pin to a low voltage, Turn off the led
-        arduino_hal::delay_ms(1000); // wait for another second
-    } 
+    loop {
+        led_on();
+        delay_ms(1000);
+        led_off();
+        delay_ms(1000);
+    }
+}
+
+fn setup() {
+    unsafe {
+        let current_ddrb = ptr::read_volatile(DDRB);
+        ptr::write_volatile(DDRB, current_ddrb | PINB5);
+    }
+}
+
+fn led_on() {
+    unsafe {
+        let current_portb = ptr::read_volatile(PORTB);
+        ptr::write_volatile(PORTB, current_portb | PINB5);
+    }
+}
+
+fn led_off() {
+    unsafe {
+        let current_portb = ptr::read_volatile(PORTB);
+        ptr::write_volatile(PORTB, current_portb & !PINB5);
+    }
+}
+
+fn delay_ms(ms: u16) {
+    for _ in 0..ms {
+        for _ in 0..16_000 {
+            unsafe { ptr::read_volatile(0x00 as *const u8); }
+        }
+    }
 }

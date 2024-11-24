@@ -9,3 +9,4 @@ avr-device = { version = "0.5.4", features = ["atmega328p", "rt"] }
 
 [profile.release]
 panic = "abort"
+lto = true

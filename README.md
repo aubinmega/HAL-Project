@@ -19,11 +19,6 @@ The program configures the Arduino board LED (connected to pin D13 on most Ardui
 cargo +nightly build -Z build-std=core --target avr-unknown-gnu-atmega328 --release
 cargo +nightly build -Z build-std=core,panic_abort --target avr-unknown-gnu-atmega328 --release
 
-
-### commentaires
-
-voir fichier comments.md
-
 ### Authors
 
 - [Aubin NCUTI](https://github.com/aubinmega)

@@ -30,7 +30,3 @@ voir fichier comments.md
 - [Charles NGUYEN](https://github.com/Sylkka)
 - [Anton NOMED](https://github.com/Coraz0nn)
 
-
-[CORRECTION GPIO] (Don't hesitate to remove this part)
-Consider subdividing your project into separate modules. 
-You should abstract the Atmega328p hardware, with generic function, just like an HAL do.

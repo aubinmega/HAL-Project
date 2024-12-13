@@ -25,3 +25,7 @@ cargo +nightly build -Z build-std=core,panic_abort --target avr-unknown-gnu-atme
 - [Charles NGUYEN](https://github.com/Sylkka)
 - [Anton NOMED](https://github.com/Coraz0nn)
 
+
+[CORRECTION USART] (Don't hesitate to remove this part)
+You could try implementing the internal clock of the Atmega as well
+One target is missing !

@@ -29,3 +29,7 @@ cargo +nightly build -Z build-std=core,panic_abort --target avr-unknown-gnu-atme
 [CORRECTION USART] (Don't hesitate to remove this part)
 You could try implementing the internal clock of the Atmega as well
 One target is missing !
+
+[CORRECTION SPI] (don't hesitate to remove this part)
+You didn't implement the SPI feature.
+Your second target is missing.

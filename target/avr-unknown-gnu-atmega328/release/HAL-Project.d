@@ -1,1 +1,0 @@
-/mnt/c/Users/AubinDOJ/Documents/ESILV-A4/HW-Virtualisation_Trust/Projet/HAL-Project/target/avr-unknown-gnu-atmega328/release/HAL-Project.elf: /mnt/c/Users/AubinDOJ/Documents/ESILV-A4/HW-Virtualisation_Trust/Projet/HAL-Project/src/main.rs /mnt/c/Users/AubinDOJ/Documents/ESILV-A4/HW-Virtualisation_Trust/Projet/HAL-Project/src/usart.rs

@@ -10,3 +10,18 @@ avr-device = { version = "0.5.4", features = ["atmega328p", "rt"] }
 [profile.release]
 panic = "abort"
 lto = true
+
+[build]
+target = "xtensa-esp8266-none-elf"
+
+[target.xtensa-esp8266-none-elf]
+linker = "xtensa-lx106-elf-gcc"
+runner = "espflash"
+
+[unstable]
+build-std = ["core", "alloc"]
+
+[features]
+default = []
+atmega328p = []
+esp8266 = []

@@ -1,0 +1,13 @@
+{
+    "arch": "xtensa",
+    "data-layout": "e-m:e-p:32:32-i8:8:32-i16:16:32-i64:64-n32",
+    "llvm-target": "xtensa",
+    "os": "none",
+    "executables": true,
+    "linker": "xtensa-lx106-elf-gcc",
+    "target-endian": "little",
+    "target-pointer-width": "32",
+    "max-atomic-width": 32,
+    "features": "",
+    "panic-strategy": "abort"
+}

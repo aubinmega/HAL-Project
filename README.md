@@ -1,4 +1,4 @@
-# HAL-Project : Making the Arduino LED Blink using embedded Rust and simAVR
+# HAL-Project
 
 The project utilizes Rust to create a Hardware Abstraction Layer (HAL) for controlling microcontrollers like the Atmega328p (Arduino) and ESP8266.
 
